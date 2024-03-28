@@ -3,16 +3,16 @@ from langchain.llms import GooglePalm
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
-from dotenv import load_dotenv
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
+import streamlit as st
 
 
-load_dotenv()
+# load_dotenv()
 
 
 
-llm = GooglePalm(google_api_key=os.environ["API_KEY"], temperature=0)
+llm = GooglePalm(google_api_key=st.secrets["API_KEY"], temperature=0)
 
 instruct_embeddings = HuggingFaceInstructEmbeddings()
 
